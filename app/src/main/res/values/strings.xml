@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">ungLoen_mobile_exam</string>
+    <string name="app_name">UngLøn</string>
+    <string name="box1_text">Gnm. Måneds udbetaling</string>
+    <string name="box2_text">Gnm. Årlig udbetaling</string>
+    <string name="box3_text">Gnm. Kørsels fradrag</string>
+    <string name="box4_text">Gnm. Feriepenge</string>
+    <string name="start_btn_text">Se Vores Tjenester</string>
+    <string name="go_back_btn_text">Gå tilbage</string>
+    <string name="app_description">Denne app er udviklet til formål, at hjælpe unge mennesker med deres økonomi.\n\n<b>Så de får et bedre overblik over:</b>\n<b>1.</b> Hvor meget de får udbetalt\n<b>2.</b> Hvad de kan forvente at få i feriepenge\n<b>3.</b> Hvor meget de kan forvente at få i kørsels fradrag.</string>
+    <string name="web_link">Opret dig her</string>
 </resources>
