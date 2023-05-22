@@ -2,6 +2,7 @@ package com.example.ungloen_mobile_exam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,5 +16,10 @@ public class VoresTjenester extends AppCompatActivity {
 
     public void gaaTilbage(View view){
         finish();
+    }
+
+    public void gaaTilBeregnMaanedsLoen(View view) {
+        Intent intent = new Intent(this, BeregnMaanedsLoen.class);
+        startActivity(intent);
     }
 }

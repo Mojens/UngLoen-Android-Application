@@ -8,4 +8,19 @@
     <string name="go_back_btn_text">Gå tilbage</string>
     <string name="app_description">Denne app er udviklet til formål, at hjælpe unge mennesker med deres økonomi.\n\n<b>Så de får et bedre overblik over:</b>\n<b>1.</b> Hvor meget de får udbetalt\n<b>2.</b> Hvad de kan forvente at få i feriepenge\n<b>3.</b> Hvor meget de kan forvente at få i kørsels fradrag.</string>
     <string name="web_link">Opret dig her</string>
+    <string name="maanedsLoen_udbetaling_btn">Udregn din månedlige udbetaling</string>
+    <string name="koerselsFradrag_btn">Udregn dit kørsels fradrag</string>
+    <string name="feriepenge_btn">Udregn dine feriepenge</string>
+    <string name="traek_procent">Træk procent</string>
+    <string name="maaneds_fradrag">Månedligt fradrag</string>
+    <string name="head_or_bi_card">Bruger du dit hovedkort eller bikort på indkomsten?</string>
+    <string name="bi_card">Bikort</string>
+    <string name="head_card">Hovedkort</string>
+    <string name="income_spinner_label">Vælg din Indkomsttype</string>
+    <string name="pay_period_label">Hvad er din lønperiode?</string>
+    <string name="pay_period_two_weeks">Hver anden uge</string>
+    <string name="pay_period_monthly">Pr. Måned</string>
+    <string name="income_monthly_label">Indtast din Indkomst pr. måned</string>
+    <string name="calculate_btn_label">Udregn</string>
+
 </resources>

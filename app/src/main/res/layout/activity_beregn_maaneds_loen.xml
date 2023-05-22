@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/beregn_maaneds_loen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4D0D0"
+    tools:context=".BeregnMaanedsLoen">
+
+    <Button
+        android:id="@+id/gaa_tilbage_knap2"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="gaaTilbageTilTjenester"
+        android:text="@string/go_back_btn_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/monthly_income_result_btn"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/calculate_btn_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/traek_procent_input"
+        android:layout_width="169dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traek_procent_label" />
+
+    <TextView
+        android:id="@+id/traek_procent_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/traek_procent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gaa_tilbage_knap2" />
+
+    <EditText
+        android:id="@+id/maanedlig_fraadrag_input"
+        android:layout_width="169dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maanedlig_fraadrag_label" />
+
+    <TextView
+        android:id="@+id/maanedlig_fraadrag_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="73dp"
+        android:text="@string/maaneds_fradrag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/income_spinner"
+        android:layout_width="364dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/income_spinner_label" />
+
+    <RadioGroup
+        android:id="@+id/head_or_bi_card"
+        android:layout_width="194dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_or_bi_card_label">
+
+        <RadioButton
+            android:id="@+id/bi_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bi_card" />
+
+        <RadioButton
+            android:id="@+id/head_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/head_card" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/head_or_bi_card_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/head_or_bi_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/income_spinner" />
+
+    <TextView
+        android:id="@+id/income_spinner_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/income_spinner_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traek_procent_input" />
+
+    <TextView
+        android:id="@+id/pay_period_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/pay_period_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_or_bi_card" />
+
+    <RadioGroup
+        android:id="@+id/every_two_weeks_or_monthly"
+        android:layout_width="198dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pay_period_label">
+
+        <RadioButton
+            android:id="@+id/every_two_weeks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pay_period_two_weeks" />
+
+        <RadioButton
+            android:id="@+id/monthly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pay_period_monthly" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/monthly_income"
+        android:layout_width="338dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="31dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthly_income_label" />
+
+    <TextView
+        android:id="@+id/monthly_income_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="41dp"
+        android:text="@string/income_monthly_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/every_two_weeks_or_monthly" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

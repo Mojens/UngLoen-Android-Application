@@ -13,6 +13,12 @@
         android:theme="@style/Theme.UngLoen_mobile_exam"
         tools:targetApi="31">
         <activity
+            android:name=".UdregningResultat"
+            android:exported="false" />
+        <activity
+            android:name=".BeregnMaanedsLoen"
+            android:exported="false" />
+        <activity
             android:name=".VoresTjenester"
             android:exported="false" />
         <activity
