@@ -15,7 +15,8 @@ public class VoresTjenester extends AppCompatActivity {
     }
 
     public void gaaTilbage(View view){
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void gaaTilBeregnMaanedsLoen(View view) {
