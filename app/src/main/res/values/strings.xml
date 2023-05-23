@@ -22,5 +22,6 @@
     <string name="pay_period_monthly">Pr. Måned</string>
     <string name="income_monthly_label">Indtast din Indkomst pr. måned</string>
     <string name="calculate_btn_label">Udregn</string>
+    <string name="tilbage_til_start">Tilbage til start</string>
 
 </resources>

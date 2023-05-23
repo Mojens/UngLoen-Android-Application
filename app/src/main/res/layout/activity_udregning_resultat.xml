@@ -7,4 +7,46 @@
     android:background="#F4D0D0"
     tools:context=".UdregningResultat">
 
+    <Button
+        android:id="@+id/gaa_tilbage_til_tjeneste"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="gaaTilbageTilTjenester"
+        android:text="@string/go_back_btn_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back_to_home"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="gaaTilStart"
+        android:text="@string/tilbage_til_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultat_fra_tjeneste"
+        android:layout_width="400dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginBottom="276dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gaa_tilbage_til_tjeneste" />
+
+    <TextView
+        android:id="@+id/aarlige_result_fra_tjeneste"
+        android:layout_width="313dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="63dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultat_fra_tjeneste" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
