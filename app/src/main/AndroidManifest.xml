@@ -13,6 +13,9 @@
         android:theme="@style/Theme.UngLoen_mobile_exam"
         tools:targetApi="31">
         <activity
+            android:name=".BeregnKoerselsFradrag"
+            android:exported="false" />
+        <activity
             android:name=".UdregningResultat"
             android:exported="false" />
         <activity

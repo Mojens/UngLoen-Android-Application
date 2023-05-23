@@ -2,6 +2,7 @@ package com.example.ungloen_mobile_exam.service;
 
 import android.util.Log;
 
+import com.example.ungloen_mobile_exam.model.KoerselsFradragData;
 import com.example.ungloen_mobile_exam.model.MaanedsLoenData;
 
 public class DataUdregner {
@@ -61,5 +62,7 @@ public class DataUdregner {
         return maanedligeUdbetaling;
     }
 
-
+    public double udregnKoerselsFradrag(KoerselsFradragData koerselsFradragData){
+        return 0.0;
+    }
 }
