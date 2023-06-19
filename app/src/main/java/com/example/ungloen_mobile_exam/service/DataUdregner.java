@@ -62,7 +62,18 @@ public class DataUdregner {
         return maanedligeUdbetaling;
     }
 
-    public double udregnKoerselsFradrag(KoerselsFradragData koerselsFradragData){
-        return 0.0;
+    public double udregnKoerselsFradrag(KoerselsFradragData koerselsFradragData) {
+        double koerselsFradrag = 0.0;
+        double kilometerTilArbejde = koerselsFradragData.getKilometerTilArbejde();
+        int arbejdsdageMedTransport = koerselsFradragData.getArbejdsdageMedTransport();
+
+        if (kilometerTilArbejde > 24) {
+            koerselsFradrag = (kilometerTilArbejde - 24) * 1.93 * arbejdsdageMedTransport;
+        }
+        if (koerselsFradrag > 0.0) {
+            firebaseFirestoreService.tilfoejKoerselsFradrag(koerselsFradrag);
+
+        }
+        return koerselsFradrag;
     }
 }

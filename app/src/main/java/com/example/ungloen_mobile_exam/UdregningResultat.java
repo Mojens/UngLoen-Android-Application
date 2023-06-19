@@ -16,7 +16,6 @@ import java.util.Locale;
 
 public class UdregningResultat extends AppCompatActivity {
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,18 +24,25 @@ public class UdregningResultat extends AppCompatActivity {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.forLanguageTag("da-DK"));
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00", symbols);
 
-        double udbetaling = getIntent().getDoubleExtra("UDBETALING", 0.0);
-        double aarligUdbetaling = getIntent().getDoubleExtra("AARLIG_UDBETALING", 0.0);
-        Log.i("UdregningResultat", "Udbetaling: " + udbetaling);
-        Log.i("UdregningResultat", "Årlig udbetaling: " + aarligUdbetaling);
-
+        String typeUdregning = getIntent().getStringExtra("TYPE_UDREGNING");
         TextView resultat = findViewById(R.id.resultat_fra_tjeneste);
         TextView aarligResultat = findViewById(R.id.aarlige_result_fra_tjeneste);
-        if (udbetaling != 0.0) {
-            resultat.setText("Udbetaling: " + decimalFormat.format(udbetaling) + " kr.");
+
+        if (typeUdregning.equals("MÅNEDSLØN")) {
+            double udbetaling = getIntent().getDoubleExtra("UDBETALING", 0.0);
+            double aarligUdbetaling = getIntent().getDoubleExtra("AARLIG_UDBETALING", 0.0);
+
+            if (udbetaling != 0.0) {
+                resultat.setText("Udbetaling: " + decimalFormat.format(udbetaling) + " kr.");
+            }
+            if (aarligUdbetaling != 0.0) {
+                aarligResultat.setText("Årlig udbetaling: " + decimalFormat.format(aarligUdbetaling) + " kr.");
+            }
         }
-        if (aarligUdbetaling != 0.0) {
-            aarligResultat.setText("Årlig udbetaling: " + decimalFormat.format(aarligUdbetaling) + " kr.");
+        if (typeUdregning.equals("KØRESELSFRADRAG")) {
+            aarligResultat.setVisibility(View.GONE);
+            double koerselsFradrag = getIntent().getDoubleExtra("KØRESELSFRADRAG", 0.0);
+            resultat.setText("Kørselsfradrag: " + decimalFormat.format(koerselsFradrag) + " kr.");
         }
 
     }

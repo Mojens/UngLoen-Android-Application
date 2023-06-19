@@ -28,4 +28,9 @@ public class VoresTjenester extends AppCompatActivity {
         Intent intent = new Intent(this, BeregnKoerselsFradrag.class);
         startActivity(intent);
     }
+
+    public void gaaTilFeriePenge(View view) {
+        Intent intent = new Intent(this, BeregnFeriePenge.class);
+        startActivity(intent);
+    }
 }

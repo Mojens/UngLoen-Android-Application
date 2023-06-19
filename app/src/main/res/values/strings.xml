@@ -23,5 +23,7 @@
     <string name="income_monthly_label">Indtast din Indkomst pr. måned</string>
     <string name="calculate_btn_label">Udregn</string>
     <string name="tilbage_til_start">Tilbage til start</string>
+    <string name="kilo_meter_til_arbejde">Kilometer til arbejde</string>
+    <string name="arbejds_dage_i_periode">Arbejdsdage med transport i perioden</string>
 
 </resources>

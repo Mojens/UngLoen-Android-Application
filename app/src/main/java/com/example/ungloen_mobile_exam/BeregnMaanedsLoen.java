@@ -23,7 +23,7 @@ import com.example.ungloen_mobile_exam.service.FirebaseFirestoreService;
 public class BeregnMaanedsLoen extends AppCompatActivity {
 
     private final DataUdregner dataUdregner = new DataUdregner();
-    private final String[] incomeOptions = {"Løn", "SU", "Dagpenge (A-kasse) eller kontanthjælp", "Efterløn", "Pension"};
+    private final String[] indkomstMuligheder = {"Løn", "SU", "Dagpenge (A-kasse) eller kontanthjælp", "Efterløn", "Pension"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
         setContentView(R.layout.activity_beregn_maaneds_loen);
 
         Spinner incomeSpinner = findViewById(R.id.income_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, incomeOptions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, indkomstMuligheder);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         incomeSpinner.setAdapter(adapter);
         listenForDropDown();
@@ -46,13 +46,13 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
         final RadioGroup payPeriodRadioGroup = findViewById(R.id.every_two_weeks_or_monthly);
         final TextView payPeriodLabel = findViewById(R.id.pay_period_label);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, incomeOptions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, indkomstMuligheder);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         incomeSpinner.setAdapter(adapter);
         incomeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedOption = incomeOptions[position];
+                String selectedOption = indkomstMuligheder[position];
                 if (selectedOption.equals("Løn")) {
                     payPeriodRadioGroup.setVisibility(View.VISIBLE);
                     payPeriodLabel.setVisibility(View.VISIBLE);
@@ -96,13 +96,12 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
         }
 
         MaanedsLoenData maanedsLoenData = new MaanedsLoenData(traekProcent, maanedligtFradrag, indkomstType, biEllerHoved, udbetalingsPeriode, maanedligeIndkomst);
-        Log.i("DataUdregner","Objektet til at sende" + maanedsLoenData);
         double udbetaling = dataUdregner.udregnMaanedsLoen(maanedsLoenData);
-        Log.i("DataUdregner", udbetaling + " kr.");
         double aarligUdbetaling = udbetaling * 12;
 
         Intent intent = new Intent(this, UdregningResultat.class);
 
+        intent.putExtra("TYPE_UDREGNING", "MÅNEDSLØN");
         intent.putExtra("UDBETALING", udbetaling);
         intent.putExtra("AARLIG_UDBETALING", aarligUdbetaling);
 
