@@ -2,6 +2,8 @@ package com.example.ungloen_mobile_exam.service;
 
 import android.util.Log;
 
+import com.example.ungloen_mobile_exam.model.feriepenge.FeriePengeResultat;
+import com.example.ungloen_mobile_exam.model.feriepenge.FeriepengeData;
 import com.example.ungloen_mobile_exam.model.KoerselsFradragData;
 import com.example.ungloen_mobile_exam.model.MaanedsLoenData;
 
@@ -75,5 +77,19 @@ public class DataUdregner {
 
         }
         return koerselsFradrag;
+    }
+
+    public FeriePengeResultat udregnFeriepenge(FeriepengeData feriepengeData){
+        FeriePengeResultat feriePengeResultat = new FeriePengeResultat();
+        double loenIndkomst = feriepengeData.getLoenIndkomst();
+        int maaneder = feriepengeData.getMaaneder();
+        double ferieDageOptjent = maaneder * 2.08;
+        double feriepengeAfIndkomst = (loenIndkomst * feriepengeData.getFeriepengeSats())/100;
+        double feriepengeOptjent = feriepengeAfIndkomst * maaneder;
+        double feriepengeAar = feriepengeAfIndkomst * 12;
+        feriePengeResultat.setFeriePengeOptjent(feriepengeOptjent);
+        feriePengeResultat.setFeriepengeAar(feriepengeAar);
+        feriePengeResultat.setFerieDageOptjent(ferieDageOptjent);
+        return feriePengeResultat;
     }
 }

@@ -25,5 +25,6 @@
     <string name="tilbage_til_start">Tilbage til start</string>
     <string name="kilo_meter_til_arbejde">Kilometer til arbejde</string>
     <string name="arbejds_dage_i_periode">Arbejdsdage med transport i perioden</string>
+    <string name="periode_i_maaned">Periode i måneder</string>
 
 </resources>
