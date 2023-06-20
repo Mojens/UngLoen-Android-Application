@@ -11,12 +11,15 @@ import android.widget.Toast;
 
 import com.example.ungloen_mobile_exam.model.KoerselsFradragData;
 import com.example.ungloen_mobile_exam.service.DataUdregner;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.net.InternetDomainName;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.text.DecimalFormat;
 
@@ -39,9 +42,10 @@ public class BeregnKoerselsFradrag extends AppCompatActivity implements OnMapRea
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(56.0, 11.0), 6));
         googleMap.setOnMapClickListener(latLng -> {
             if (punkt1 == null) {
                 punkt1 = latLng;

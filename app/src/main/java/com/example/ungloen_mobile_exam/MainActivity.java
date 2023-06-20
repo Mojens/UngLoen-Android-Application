@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gaaTilOpretBruger(View view) {
-        String link = "https://ungloen.dk/opret-bruger";
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ungloen.vercel.app/opret-bruger"));
         startActivity(intent);
     }
 }
