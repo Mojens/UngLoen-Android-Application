@@ -44,6 +44,15 @@ public class UdregningResultat extends AppCompatActivity {
             double koerselsFradrag = getIntent().getDoubleExtra("KØRESELSFRADRAG", 0.0);
             resultat.setText("Kørselsfradrag: " + decimalFormat.format(koerselsFradrag) + " kr.");
         }
+        if (typeUdregning.equals("FERIEPENGE")) {
+            double ferieDageOptjent = getIntent().getDoubleExtra("FERIEDAGEOPTJENT", 0.0);
+            double feriePengeOptjent = getIntent().getDoubleExtra("FERIEPENGEOPTJENT", 0.0);
+            double feriePengeAar = getIntent().getDoubleExtra("FERIEPENGEAAR", 0.0);
+            int maanederIArbejde = getIntent().getIntExtra("FERIEMÅNEDER", 0);
+            resultat.setText("Feriedage optjent i "+maanederIArbejde+" måneder: " + decimalFormat.format(ferieDageOptjent) + " dage. \n\n"
+                    + "Feriepenge optjent: \n" + decimalFormat.format(feriePengeOptjent) + " kr.");
+            aarligResultat.setText("Feriedage optjent pr. år:\n 24,96 dage.\n\n" + "Feriepenge optjent pr. år: " + decimalFormat.format(feriePengeAar) + " kr.");
+        }
 
     }
 

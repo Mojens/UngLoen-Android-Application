@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="400dp"
         android:text="@string/kilo_meter_til_arbejde"
         app:layout_constraintBottom_toTopOf="@+id/kilometer_til_arbejde"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,9 +72,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="75dp"
         android:text="@string/arbejds_dage_i_periode"
         app:layout_constraintBottom_toTopOf="@+id/arbejdsdage_i_perioden"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kilometer_til_arbejde" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="344dp"
+        android:layout_height="219dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gaa_tilbage_knap4" />
+
+    <Button
+        android:id="@+id/udregn_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="@string/udregn_distance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
+    <Button
+        android:id="@+id/udregn_distance2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="180dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:onClick="fjernPunkter"
+        android:text="@string/fjern_punkter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,7 @@ public class DataUdregner {
         double feriepengeAfIndkomst = (loenIndkomst * feriepengeData.getFeriepengeSats())/100;
         double feriepengeOptjent = feriepengeAfIndkomst * maaneder;
         double feriepengeAar = feriepengeAfIndkomst * 12;
+        firebaseFirestoreService.tilfoejFeriepenge(feriepengeAar);
         feriePengeResultat.setFeriePengeOptjent(feriepengeOptjent);
         feriePengeResultat.setFeriepengeAar(feriepengeAar);
         feriePengeResultat.setFerieDageOptjent(ferieDageOptjent);

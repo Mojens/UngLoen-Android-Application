@@ -40,6 +40,7 @@ public class BeregnFeriePenge extends AppCompatActivity {
 
         Intent intent = new Intent(this, UdregningResultat.class);
         intent.putExtra("TYPE_UDREGNING", "FERIEPENGE");
+        intent.putExtra("FERIEMÅNEDER", maanederIArbejde);
         intent.putExtra("FERIEDAGEOPTJENT", resultat.getFerieDageOptjent());
         intent.putExtra("FERIEPENGEOPTJENT", resultat.getFeriePengeOptjent());
         intent.putExtra("FERIEPENGEAAR", resultat.getFeriepengeAar());

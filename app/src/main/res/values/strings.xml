@@ -26,5 +26,7 @@
     <string name="kilo_meter_til_arbejde">Kilometer til arbejde</string>
     <string name="arbejds_dage_i_periode">Arbejdsdage med transport i perioden</string>
     <string name="periode_i_maaned">Periode i måneder</string>
+    <string name="udregn_distance">Udregn Afstand</string>
+    <string name="fjern_punkter">Fjern punkter på kortet</string>
 
 </resources>
