@@ -36,8 +36,6 @@ public class BeregnKoerselsFradrag extends AppCompatActivity implements OnMapRea
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        Button beregnAfstandButton = findViewById(R.id.udregn_distance);
-        beregnAfstandButton.setOnClickListener(v -> beregnAfstand());
     }
 
     @Override
@@ -63,7 +61,7 @@ public class BeregnKoerselsFradrag extends AppCompatActivity implements OnMapRea
         googleMap.clear();
     }
 
-    public void beregnAfstand() {
+    public void beregnAfstand(View view) {
         if (punkt1 != null && punkt2 != null) {
             double afstand = beregnAfstandMellemPunkter(punkt1, punkt2);
             EditText kilometerTilArbejdeInput = findViewById(R.id.kilometer_til_arbejde);
@@ -82,10 +80,11 @@ public class BeregnKoerselsFradrag extends AppCompatActivity implements OnMapRea
         return results[0];
     }
 
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        mapView.onResume();
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
     }
 
     @Override
@@ -95,9 +94,27 @@ public class BeregnKoerselsFradrag extends AppCompatActivity implements OnMapRea
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
     }
 
 

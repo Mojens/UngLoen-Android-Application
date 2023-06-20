@@ -91,11 +91,13 @@
 
     <Button
         android:id="@+id/udregn_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="143dp"
+        android:layout_height="53dp"
         android:layout_marginStart="236dp"
         android:layout_marginTop="4dp"
         android:backgroundTint="@android:color/holo_green_dark"
+        android:keyboardNavigationCluster="true"
+        android:onClick="beregnAfstand"
         android:text="@string/udregn_distance"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
