@@ -20,42 +20,42 @@ public class DataUdregner {
         String biEllerHoved = maanedsLoenData.getBiEllerHoved();
         double traekProcent = maanedsLoenData.getTraekProcent();
 
-        double laborContributionRate = 0.08;
+        double amBidragSats = 0.08;
 
         if (indkomstType.equals("Løn")) {
-            double laborContribution = maanedligeIndkomst * laborContributionRate;
+            double amBidrag = maanedligeIndkomst * amBidragSats;
 
             if (biEllerHoved.equals("Hovedkort") && udbetalingsPeriode.equals("Pr. Måned")) {
-                double incomeAfterLaborContributionAndDeduction = maanedligeIndkomst - laborContribution - maanedsLoenData.getMaanedligtFradrag();
-                double taxToPay = incomeAfterLaborContributionAndDeduction * (traekProcent / 100);
+                double indkomstEfterAMBidragOgFradrag = maanedligeIndkomst - amBidrag - maanedsLoenData.getMaanedligtFradrag();
+                double skatAtBetale = indkomstEfterAMBidragOgFradrag * (traekProcent / 100);
 
-                maanedligeUdbetaling = incomeAfterLaborContributionAndDeduction - taxToPay + maanedsLoenData.getMaanedligtFradrag();
+                maanedligeUdbetaling = indkomstEfterAMBidragOgFradrag - skatAtBetale + maanedsLoenData.getMaanedligtFradrag();
             } else if (biEllerHoved.equals("Hovedkort") && udbetalingsPeriode.equals("Hver anden uge")) {
-                double incomeAfterLaborContributionAndDeduction = maanedligeIndkomst - laborContribution - (maanedsLoenData.getMaanedligtFradrag() * 0.46);
-                double taxToPay = incomeAfterLaborContributionAndDeduction * (traekProcent / 100);
+                double indkomstEfterAMBidragOgFradrag = maanedligeIndkomst - amBidrag - (maanedsLoenData.getMaanedligtFradrag() * 0.46);
+                double skatAtBetale = indkomstEfterAMBidragOgFradrag * (traekProcent / 100);
 
-                maanedligeUdbetaling = incomeAfterLaborContributionAndDeduction - taxToPay + (maanedsLoenData.getMaanedligtFradrag() * 0.46);
+                maanedligeUdbetaling = indkomstEfterAMBidragOgFradrag - skatAtBetale + (maanedsLoenData.getMaanedligtFradrag() * 0.46);
             } else if (biEllerHoved.equals("Bikort") && udbetalingsPeriode.equals("Pr. Måned")) {
-                double incomeAfterLaborContributionAndDeduction = maanedligeIndkomst - laborContribution;
-                double taxToPay = incomeAfterLaborContributionAndDeduction * (traekProcent / 100);
+                double indkomstEfterAMBidragOgFradrag = maanedligeIndkomst - amBidrag;
+                double skatAtBetale = indkomstEfterAMBidragOgFradrag * (traekProcent / 100);
 
-                maanedligeUdbetaling = incomeAfterLaborContributionAndDeduction - taxToPay;
+                maanedligeUdbetaling = indkomstEfterAMBidragOgFradrag - skatAtBetale;
             } else if (biEllerHoved.equals("Bikort") && udbetalingsPeriode.equals("Hver anden uge")) {
-                double incomeAfterLaborContributionAndDeduction = maanedligeIndkomst - laborContribution;
-                double taxToPay = incomeAfterLaborContributionAndDeduction * (traekProcent / 100);
+                double indkomstEfterAMBidragOgFradrag = maanedligeIndkomst - amBidrag;
+                double skatAtBetale = indkomstEfterAMBidragOgFradrag * (traekProcent / 100);
 
-                maanedligeUdbetaling = incomeAfterLaborContributionAndDeduction - taxToPay;
+                maanedligeUdbetaling = indkomstEfterAMBidragOgFradrag - skatAtBetale;
             }
         } else {
             if (biEllerHoved.equals("Hovedkort")) {
-                double incomeAfterDeduction = maanedligeIndkomst - maanedsLoenData.getMaanedligtFradrag();
-                double taxToPay = incomeAfterDeduction * (traekProcent / 100);
+                double indkomstsEfterFradrag = maanedligeIndkomst - maanedsLoenData.getMaanedligtFradrag();
+                double skatAtBetale = indkomstsEfterFradrag * (traekProcent / 100);
 
-                maanedligeUdbetaling = incomeAfterDeduction - taxToPay + maanedsLoenData.getMaanedligtFradrag();
+                maanedligeUdbetaling = indkomstsEfterFradrag - skatAtBetale + maanedsLoenData.getMaanedligtFradrag();
             } else if (biEllerHoved.equals("Bikort")) {
-                double taxToPay = maanedligeIndkomst * (traekProcent / 100);
+                double skatAtBetale = maanedligeIndkomst * (traekProcent / 100);
 
-                maanedligeUdbetaling = maanedligeIndkomst - taxToPay;
+                maanedligeUdbetaling = maanedligeIndkomst - skatAtBetale;
             }
         }
         firebaseFirestoreService.tilfoejMaanedsLoen(maanedligeUdbetaling);

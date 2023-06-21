@@ -30,10 +30,10 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beregn_maaneds_loen);
 
-        Spinner incomeSpinner = findViewById(R.id.income_spinner);
+        Spinner indkomstDropdown = findViewById(R.id.income_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, indkomstMuligheder);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        incomeSpinner.setAdapter(adapter);
+        indkomstDropdown.setAdapter(adapter);
         listenForDropDown();
     }
 
@@ -42,14 +42,14 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
     }
 
     private void listenForDropDown() {
-        Spinner incomeSpinner = findViewById(R.id.income_spinner);
+        Spinner indkomstDropdown = findViewById(R.id.income_spinner);
         final RadioGroup payPeriodRadioGroup = findViewById(R.id.every_two_weeks_or_monthly);
         final TextView payPeriodLabel = findViewById(R.id.pay_period_label);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, indkomstMuligheder);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        incomeSpinner.setAdapter(adapter);
-        incomeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        indkomstDropdown.setAdapter(adapter);
+        indkomstDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedOption = indkomstMuligheder[position];
@@ -84,15 +84,15 @@ public class BeregnMaanedsLoen extends AppCompatActivity {
         EditText maanedligeIndkomstInput = findViewById(R.id.monthly_income);
         double maanedligeIndkomst = Double.parseDouble(maanedligeIndkomstInput.getText().toString());
 
-        Spinner incomeSpinner = findViewById(R.id.income_spinner);
-        String indkomstType = incomeSpinner.getSelectedItem().toString();
+        Spinner indkomstDropdown = findViewById(R.id.income_spinner);
+        String indkomstType = indkomstDropdown.getSelectedItem().toString();
 
         String udbetalingsPeriode = "";
         if (indkomstType.equals("Løn")) {
             RadioGroup payPeriodRadioGroup = findViewById(R.id.every_two_weeks_or_monthly);
             int valgtPayPeriodRadio = payPeriodRadioGroup.getCheckedRadioButtonId();
-            RadioButton valgtPayPeriodRadioButton = findViewById(valgtPayPeriodRadio);
-            udbetalingsPeriode = valgtPayPeriodRadioButton.getText().toString();
+            RadioButton valgtBetalingsPeriodeRadioButton = findViewById(valgtPayPeriodRadio);
+            udbetalingsPeriode = valgtBetalingsPeriodeRadioButton.getText().toString();
         }
 
         MaanedsLoenData maanedsLoenData = new MaanedsLoenData(traekProcent, maanedligtFradrag, indkomstType, biEllerHoved, udbetalingsPeriode, maanedligeIndkomst);

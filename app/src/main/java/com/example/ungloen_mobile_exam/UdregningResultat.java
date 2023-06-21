@@ -16,6 +16,7 @@ import java.util.Locale;
 
 public class UdregningResultat extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,6 @@ public class UdregningResultat extends AppCompatActivity {
                     + "Feriepenge optjent: \n" + decimalFormat.format(feriePengeOptjent) + " kr.");
             aarligResultat.setText("Feriedage optjent pr. år:\n 24,96 dage.\n\n" + "Feriepenge optjent pr. år: " + decimalFormat.format(feriePengeAar) + " kr.");
         }
-
     }
 
     public void gaaTilbageTilTjeneste() {
